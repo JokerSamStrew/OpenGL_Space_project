@@ -13,7 +13,9 @@ namespace Kursach_Cosmos2._0
  
         static void Main()
         {
+
             ProjectWindow projectWindow = new ProjectWindow();
+            
             projectWindow.Run(60);
         }
     }

@@ -24,9 +24,9 @@ namespace Kursach_Cosmos2._0.Classes
 
         public void Draw()
         {
+            GL.Disable(EnableCap.Texture2D);
             GL.Disable(EnableCap.Light0);
             GL.Disable(EnableCap.Lighting);
-            // int i, ix, iy;
             double x = 0, y = 0, z = 0;
             int nx = 60;
 
@@ -47,8 +47,8 @@ namespace Kursach_Cosmos2._0.Classes
             GL.LineWidth(1);
             GL.Enable(EnableCap.Lighting);
             GL.Enable(EnableCap.Light0);
-            
 
+            GL.Enable(EnableCap.Texture2D);
         }
 
         public void Draw(Vector3d location)
