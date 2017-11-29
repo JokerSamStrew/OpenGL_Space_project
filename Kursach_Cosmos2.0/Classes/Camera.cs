@@ -38,7 +38,7 @@ namespace Kursach_Cosmos2._0.Classes
             GL.MatrixMode(MatrixMode.Modelview);
             GL.LoadIdentity();
             OpenTK.Graphics.Glu.LookAt(new Vector3(x , y, z ), target, new Vector3(0, 1, 0) );
-            
+         
         }
     }
 }

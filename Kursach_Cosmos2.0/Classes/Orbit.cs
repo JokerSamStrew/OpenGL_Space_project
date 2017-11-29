@@ -28,7 +28,7 @@ namespace Kursach_Cosmos2._0.Classes
             GL.Disable(EnableCap.Light0);
             GL.Disable(EnableCap.Lighting);
             double x = 0, y = 0, z = 0;
-            int nx = 60;
+            int nx = 200;
 
             GL.LineWidth(m_lineWidth);
             GL.Begin(BeginMode.LineLoop);

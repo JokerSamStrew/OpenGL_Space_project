@@ -17,7 +17,7 @@ namespace Kursach_Cosmos2._0.Classes
         private const string m_moon_path = "MOON.bmp";
         private const string m_sky_path = "nSky2.bmp";
         private const string m_sun_path = "SUN.bmp";
-        private const string m_controls_path = "Управление.bmp";
+        private const string m_controls_path = "Control.bmp";
 
         private SpaceObject m_moon;
         private SpaceObject m_planet;
@@ -47,6 +47,7 @@ namespace Kursach_Cosmos2._0.Classes
             GL.Disable(EnableCap.Texture2D);
             GL.Disable(EnableCap.Light0);
             GL.Disable(EnableCap.Lighting);
+            
 
             GL.PushMatrix();
             GL.LoadIdentity();
@@ -61,7 +62,7 @@ namespace Kursach_Cosmos2._0.Classes
             OpenTK.Graphics.Glu.Ortho2D(0, viewport_param, viewport_param, 0);
             GL.Begin(BeginMode.QuadStrip);
 
-
+            GL.Color3(1f, 1f, 1f);
             GL.TexCoord2(0, 0);
             GL.Vertex2(x, y);
 
@@ -84,10 +85,10 @@ namespace Kursach_Cosmos2._0.Classes
             GL.MatrixMode(MatrixMode.Modelview);
             GL.PopMatrix();
 
-
+            GL.Enable(EnableCap.Texture2D);
             GL.Enable(EnableCap.Lighting);
             GL.Enable(EnableCap.Light0);
-            GL.Enable(EnableCap.Texture2D);
+            
         }
 
         public ProjectWindow()
@@ -161,13 +162,10 @@ namespace Kursach_Cosmos2._0.Classes
         protected override void OnRenderFrame(FrameEventArgs e)
         {
 
-
-
             // SetLight
             GL.Enable(EnableCap.Lighting);
             GL.Enable(EnableCap.Light0);
-            GL.Light(LightName.Light0, LightParameter.Diffuse, new float[] { 1f, 0.6f, 0.6f, 1f });
-            //позиции света
+            GL.Light(LightName.Light0, LightParameter.Diffuse, new float[] { 0.8f, 0.6f, 0.6f, 1f });
             GL.Light(LightName.Light0, LightParameter.Position, new float[] { 0f, 0f, 0f, 1f });
             GL.Light(LightName.Light0, LightParameter.Ambient, new float[] { 0.5f, 0.2f, 1f, 0f });
 
@@ -237,7 +235,7 @@ namespace Kursach_Cosmos2._0.Classes
 
             if(show_controls_picture)
             {
-                showPicture(300, 675, m_texture_controls_id, 300);
+                showPicture(300, 675, m_texture_controls_id, 400);
             }
 
             GL.Disable(EnableCap.Light0);
