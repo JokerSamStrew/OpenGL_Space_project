@@ -17,7 +17,9 @@ namespace Kursach_Cosmos2._0.Classes
         private const string m_moon_path = "MOON.bmp";
         private const string m_sky_path = "nSky2.bmp";
         private const string m_sun_path = "SUN.bmp";
-        private const string m_controls_path = "Control.bmp";
+        private const string m_controls_path = "Controls2.png";
+        System.Drawing.Bitmap controls_picture;
+
 
         private SpaceObject m_moon;
         private SpaceObject m_planet;
@@ -42,7 +44,7 @@ namespace Kursach_Cosmos2._0.Classes
 
 
 
-        void showPicture(double x, double y, int texture_id, double size)
+        void showPicture(double x, double y, int texture_id, double width, double height)
         {
             GL.Disable(EnableCap.Texture2D);
             GL.Disable(EnableCap.Light0);
@@ -69,14 +71,14 @@ namespace Kursach_Cosmos2._0.Classes
 
 
             GL.TexCoord2(1, 0);
-            GL.Vertex2(size + x, y);
+            GL.Vertex2(width + x, y);
 
 
             GL.TexCoord2(0, 1);
-            GL.Vertex2(x, size + y);
+            GL.Vertex2(x, height + y);
 
             GL.TexCoord2(1, 1);
-            GL.Vertex2(size + x, size + y);
+            GL.Vertex2(width + x, height + y);
 
             GL.End();
 
@@ -142,6 +144,9 @@ namespace Kursach_Cosmos2._0.Classes
             GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
 
             m_texture_controls_id = GLTexture.LoadTextureTest(m_controls_path);
+
+           controls_picture = new System.Drawing.Bitmap(m_controls_path);
+
             m_camera = new Camera(new Vector3(0, 0, 0));
             m_camera.show_picture = true;
             m_camera.texture_id = m_texture_controls_id;
@@ -235,7 +240,9 @@ namespace Kursach_Cosmos2._0.Classes
 
             if(show_controls_picture)
             {
-                showPicture(300, 675, m_texture_controls_id, 400);
+                showPicture(300, 675, m_texture_controls_id, 
+                                controls_picture.Width/1.3, 
+                                controls_picture.Height/1.3);
             }
 
             GL.Disable(EnableCap.Light0);
