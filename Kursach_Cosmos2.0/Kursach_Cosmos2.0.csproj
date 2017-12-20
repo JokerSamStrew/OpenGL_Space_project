@@ -91,6 +91,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\Control.bmp" />
+    <Content Include="Resources\Controls2.png" />
+    <Content Include="Resources\MARS.bmp" />
+    <Content Include="Resources\MOON.bmp" />
+    <Content Include="Resources\nSky2.bmp" />
+    <Content Include="Resources\SUN.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
